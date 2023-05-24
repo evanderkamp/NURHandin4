@@ -42,7 +42,7 @@ plt.title("Solar System positions 2021-12-07 10:00")
 plt.xlabel("x (AU)")
 plt.ylabel("y (AU)")
 plt.legend()
-plt.savefig("NUR4Q1solsysxy.png")
+plt.savefig("NUR4Q1solsysxy.pdf")
 plt.close()
 
 for k in range(len(solsyspos)):
@@ -54,7 +54,7 @@ plt.title("Solar System positions 2021-12-07 10:00")
 plt.xlabel("x (AU)")
 plt.ylabel("z (AU)")
 plt.legend()
-plt.savefig("NUR4Q1solsysxz.png")
+plt.savefig("NUR4Q1solsysxz.pdf")
 plt.close()
 
 
@@ -165,7 +165,7 @@ plt.title("Solar System orbits from 2021-12-07 10:00 (t=0) until 2221-12-07 10:0
 plt.xlabel("x (AU)")
 plt.ylabel("y (AU)")
 plt.legend()
-plt.savefig("NUR4Q1solsysxyorbits.png")
+plt.savefig("NUR4Q1solsysxyorbits.pdf")
 plt.close()
 
 figure = plt.figure(figsize=(15,10))
@@ -176,7 +176,7 @@ plt.title("Solar System z position evolution from 2021-12-07 10:00 (t=0) until 2
 plt.xlabel("t (yr)")
 plt.ylabel("z (AU)")
 plt.legend()
-plt.savefig("NUR4Q1solsystzorbits.png")
+plt.savefig("NUR4Q1solsystzorbits.pdf")
 plt.close()
 
 figure = plt.figure(figsize=(12,12))
@@ -187,7 +187,7 @@ plt.title("Solar System orbits from 2021-12-07 10:00 until 2221-12-07 10:00, Eul
 plt.xlabel("x (AU)")
 plt.ylabel("y (AU)")
 plt.legend()
-plt.savefig("NUR4Q1solsysxyEuler.png")
+plt.savefig("NUR4Q1solsysxyEuler.pdf")
 plt.close()
 
 figure = plt.figure(figsize=(15,10))
@@ -198,7 +198,7 @@ plt.title("Solar System z position evolution from 2021-12-07 10:00 (t=0) until 2
 plt.xlabel("t (yr)")
 plt.ylabel("z (AU)")
 plt.legend()
-plt.savefig("NUR4Q1solsystzEuler.png")
+plt.savefig("NUR4Q1solsystzEuler.pdf")
 plt.close()
 
 figure = plt.figure(figsize=(15,10))
@@ -209,5 +209,5 @@ plt.title("Solar System orbits from 2021-12-07 10:00 until 2221-12-07 10:00 comp
 plt.xlabel("t (yr)")
 plt.ylabel("x leapfrog - x Euler (AU)")
 plt.legend()
-plt.savefig("NUR4Q1solsysorbitdiff.png")
+plt.savefig("NUR4Q1solsysorbitdiff.pdf")
 plt.close()

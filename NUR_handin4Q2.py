@@ -50,7 +50,7 @@ plt.xlabel("x")
 plt.ylabel("y")
 plt.title("z = 4.5 slice")
 plt.colorbar(label="density contrast")
-plt.savefig("NUR4Q2denscontr4.png")
+plt.savefig("NUR4Q2denscontr4.pdf")
 plt.close()
 
 #z=9.5
@@ -59,7 +59,7 @@ plt.xlabel("x")
 plt.ylabel("y")
 plt.title("z = 9.5 slice")
 plt.colorbar(label="density contrast")
-plt.savefig("NUR4Q2denscontr9.png")
+plt.savefig("NUR4Q2denscontr9.pdf")
 plt.close()
 
 #z=11.5
@@ -68,7 +68,7 @@ plt.xlabel("x")
 plt.ylabel("y")
 plt.title("z = 11.5 slice")
 plt.colorbar(label="density contrast")
-plt.savefig("NUR4Q2denscontr11.png")
+plt.savefig("NUR4Q2denscontr11.pdf")
 plt.close()
 
 #z=14.5
@@ -77,7 +77,7 @@ plt.xlabel("x")
 plt.ylabel("y")
 plt.title("z = 14.5 slice")
 plt.colorbar(label="density contrast")
-plt.savefig("NUR4Q2denscontr14.png")
+plt.savefig("NUR4Q2denscontr14.pdf")
 plt.close()
 
 
@@ -180,7 +180,7 @@ plt.xlabel("x")
 plt.ylabel("y")
 plt.title("z = 4.5 slice, potential")
 plt.colorbar(label="gravitational potential")
-plt.savefig("NUR4Q2gravpot4.png")
+plt.savefig("NUR4Q2gravpot4.pdf")
 plt.close()
 
 #z=9.5
@@ -189,7 +189,7 @@ plt.xlabel("x")
 plt.ylabel("y")
 plt.title("z = 9.5 slice, potential")
 plt.colorbar(label="gravitational potential")
-plt.savefig("NUR4Q2gravpot9.png")
+plt.savefig("NUR4Q2gravpot9.pdf")
 plt.close()
 
 
@@ -199,7 +199,7 @@ plt.xlabel("x")
 plt.ylabel("y")
 plt.title("z = 11.5 slice, potential")
 plt.colorbar(label="gravitational potential")
-plt.savefig("NUR4Q2gravpot11.png")
+plt.savefig("NUR4Q2gravpot11.pdf")
 plt.close()
 
 
@@ -209,7 +209,7 @@ plt.xlabel("x")
 plt.ylabel("y")
 plt.title("z = 14.5 slice, potential")
 plt.colorbar(label="gravitational potential")
-plt.savefig("NUR4Q2gravpot14.png")
+plt.savefig("NUR4Q2gravpot14.pdf")
 plt.close()
 
 #now the log10 of the absolute value of the FFT potential
@@ -219,7 +219,7 @@ plt.xlabel("x")
 plt.ylabel("y")
 plt.title(r"z = 4.5 slice, $\log_{10}(|\~\Phi|)$")
 plt.colorbar(label=r"$\log_{10}(|\~\Phi|)$")
-plt.savefig("NUR4Q2abs4.png")
+plt.savefig("NUR4Q2abs4.pdf")
 plt.close()
 
 #z=9.5
@@ -228,7 +228,7 @@ plt.xlabel("x")
 plt.ylabel("y")
 plt.title(r"z = 9.5 slice, $\log_{10}(|\~\Phi|)$")
 plt.colorbar(label=r"$\log_{10}(|\~\Phi|)$")
-plt.savefig("NUR4Q2abs9.png")
+plt.savefig("NUR4Q2abs9.pdf")
 plt.close()
 
 
@@ -238,7 +238,7 @@ plt.xlabel("x")
 plt.ylabel("y")
 plt.title(r"z = 11.5 slice, $\log_{10}(|\~\Phi|)$")
 plt.colorbar(label=r"$\log_{10}(|\~\Phi|)$")
-plt.savefig("NUR4Q2abs11.png")
+plt.savefig("NUR4Q2abs11.pdf")
 plt.close()
 
 
@@ -248,6 +248,6 @@ plt.xlabel("x")
 plt.ylabel("y")
 plt.title(r"z = 14.5 slice, $\log_{10}(|\~\Phi|)$")
 plt.colorbar(label=r"$\log_{10}(|\~\Phi|)$")
-plt.savefig("NUR4Q2abs14.png")
+plt.savefig("NUR4Q2abs14.pdf")
 plt.close()
 

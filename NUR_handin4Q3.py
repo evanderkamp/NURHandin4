@@ -26,7 +26,7 @@ for i in range(4):
 	plt.title("distribution of rescaled feature "+str(i+1))
 	plt.ylabel("nr of objects")
 	plt.xlabel(xlabels[i])
-	plt.savefig("NUR4Q3distr"+str(i+1)+".png")
+	plt.savefig("NUR4Q3distr"+str(i+1)+".pdf")
 	plt.close()
 
 
@@ -210,7 +210,7 @@ plt.plot(steps, J_alls)
 plt.xlabel("steps")
 plt.ylabel("cost function value")
 plt.title("model 1: extendedness & SFR")
-plt.savefig("NUR4Q3costfunc1.png")
+plt.savefig("NUR4Q3costfunc1.pdf")
 plt.close()
 
 
@@ -226,7 +226,7 @@ plt.plot(steps2, J_alls2)
 plt.xlabel("steps")
 plt.ylabel("cost function value")
 plt.title("model 2: all features")
-plt.savefig("NUR4Q3costfunc2.png")
+plt.savefig("NUR4Q3costfunc2.pdf")
 plt.close()
 
 
@@ -244,7 +244,7 @@ plt.plot(steps3, J_alls3)
 plt.xlabel("steps")
 plt.ylabel("cost function value")
 plt.title("model 3: color & SFR")
-plt.savefig("NUR4Q3costfunc3.png")
+plt.savefig("NUR4Q3costfunc3.pdf")
 plt.close()
 
 
@@ -262,7 +262,7 @@ plt.plot(steps4, J_alls4)
 plt.xlabel("steps")
 plt.ylabel("cost function value")
 plt.title(r"model 4: $\kappa_{CO}$ & redness")
-plt.savefig("NUR4Q3costfunc4.png")
+plt.savefig("NUR4Q3costfunc4.pdf")
 plt.close()
 
 
@@ -381,7 +381,7 @@ for p in range(6):
 	plt.ylabel('rescaled '+labs[1])
 	plt.legend()
 	#plt.show()
-	plt.savefig("NUR4Q3decbound"+str(p)+".png")
+	plt.savefig("NUR4Q3decbound"+str(p)+".pdf")
 	plt.close()
 
 
