@@ -1,9 +1,168 @@
 \section{Spiral and elliptical galaxies}
 
-For this question I could copy my leapfrog code from the working class without changes and the Euler I could easily change it to fit the problem by looking at the leapfrog code. 
-Both the leapfrog algorithm and euler algorithm I made together with my sister Liz van der Kamp (s2135752) in the working class. 
+For this question I could copy my logistic regression function from the working class and adapt it to fit this problem by adding a minimization routine, Quasi-Newton and adapting that to fit logistic regression. 
+Both the logistic regression (including the cost function and the gradient thereof) and Quasi-Newton base code I made together with my sister Liz van der Kamp (s2135752) in the working classes, but I adapted it to fit the handin problem myself. 
 
 \subsection*{a}
 
 The code I wrote for this is:
-\lstinputlisting[lastline=60]{NUR_handin4Q1.py}
+\lstinputlisting[lastline=34]{NUR_handin4Q3.py}
+
+First I read in the data and divide it up in the features and the classifications and get some labels to be able to plot it. Then I scale the features to have a mean of 0 and standard deviation of 1 by doing $x_{scaled} = (x - \bar{x})/\sigma_x$, where $x_{scaled}$ is the scaled feature, $x$ is the feature, $\bar{x}$ is the mean of the feature, and $\sigma_x$ is the standard deviation of the feature. 
+The result for the first ten objects is:
+\lstinputlisting[lastline=10]{RescaleFeatures.txt}
+where each line contains the rescaled $\kappa_{CO}$, redness, extendedness, flux emission line (SFR) for an object in that order. 
+The distributions of the rescaled features can be seen in \ref{fig:fig1}.
+
+\begin{figure}[ht]
+    \begin{subfigure}{.49\textwidth}
+       \centering
+    \includegraphics[scale=0.5]{NUR4Q3distr1.pdf}
+    \centering
+    \subcaption{distribution of rescaled $\kappa_{CO}$.}
+    \label{}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{.49\textwidth}
+       \centering
+    \includegraphics[scale=0.5]{NUR4Q3distr2.pdf}
+    \centering
+    \subcaption{distribution of rescaled redness.}
+    \label{}
+    \end{subfigure}
+     \begin{subfigure}{.49\textwidth}
+       \centering
+    \includegraphics[scale=0.5]{NUR4Q3distr3.pdf}
+    \centering
+    \subcaption{distribution of rescaled extendedness.}
+    \label{}
+    \end{subfigure}
+     \begin{subfigure}{.49\textwidth}
+       \centering
+    \includegraphics[scale=0.5]{NUR4Q3distr4.pdf}
+    \centering
+    \subcaption{distribution of rescaled flux of emission line (SFR).}
+    \label{}
+    \end{subfigure}
+    \caption{Plot corresponding to 3a, showing the distribution of the rescaled features of galaxies.}
+    \label{fig:fig1}
+\end{figure}
+
+\subsection*{b}
+
+The code I wrote for this is:
+\lstinputlisting[firsline=35, lastline=272]{NUR_handin4Q3.py}
+
+I wrote a logistic regression code that uses a modified Quasi-Newton routine specialized for logistic regression to get the optimal theta which minimizes the cost function J. The logistic regression also keeps track of the theta at every step and calculates and returns the cost function at every step.
+
+For the two features of choice I chose the last two features, the extendedness and the SFR because I thought those two would be independent of each other (not correlated) so they would give more information about the classification than two correlated features like color (redness) and SFR. 
+My minimization routine took 20 steps to converge to a cost function value of about 10$^{-6}$ when taking the last two features, see fig \ref{fig:fig2}.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.9\linewidth]{NUR4Q3costfunc1.pdf}
+  \caption{Plot corresponding to exercise 3b, showing the value of the cost function versus the number of steps for the first model which uses the last 2 features as input.}
+  \label{fig:fig2}
+\end{figure} 
+
+Next I try 3 more models, model 2 using all the features as input, model 3 using what I think are 'correlated' features (color and SFR), and model 4 using the two features I think are not correlated either, the first two features ($\kappa_{CO}$ and color/redness). 
+These all take the maximum amount of steps (100) to converge, though they do not change much after 20 or at most 50 steps. 
+Model 2 and 3 converge to a negative value for the cost function and have a step where the cost function value goes up instead of down, which might be because of a non-optimal step with the golden section search. Model 4 converges to a positive value around 10$^{-3}$ and does not have a jump, see \ref{fig:fig3}, \ref{fig:fig4}, and \ref{fig:fig5}.
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.9\linewidth]{NUR4Q3costfunc2.pdf}
+  \caption{Plot corresponding to exercise 3b, showing the value of the cost function versus the number of steps for the second model which uses all features as input.}
+  \label{fig:fig3}
+\end{figure} 
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.9\linewidth]{NUR4Q3costfunc3.pdf}
+  \caption{Plot corresponding to exercise 3b, showing the value of the cost function versus the number of steps for the third model which uses the second and last features as input.}
+  \label{fig:fig4}
+\end{figure} 
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.9\linewidth]{NUR4Q3costfunc4.pdf}
+  \caption{Plot corresponding to exercise 3b, showing the value of the cost function versus the number of steps for the fourth model which uses the first 2 features as input.}
+  \label{fig:fig5}
+\end{figure} 
+
+
+\subsection*{c}
+
+The code I wrote for this is:
+\lstinputlisting[firsline=272]{NUR_handin4Q3.py}
+
+I get the final classifications of the models by looking at the value of h, which is $1/(1+e^{-z})$ where z = the inproduct of the features and theta. 
+When the value of h is bigger than 1/2, the classification is 1 (spiral), and if the value is smaller than 1/2, the classification is 0 (elliptical). 
+I then get the masks for right and wrong classifications for each model by comparing to the classifications given by the data file, and I count the true/false positives/negatives by summing how many 1s or 0s there are in the right/wrong classifications. 
+The amount of True Positives (TP), True Negatives (TN), False Positives (FP), and False Negatives (FN) are:
+for model 1:
+\lstinputlisting{TPvalues1.txt}
+for model 2:
+\lstinputlisting{TPvalues2.txt}
+for model 3:
+\lstinputlisting{TPvalues3.txt}
+for model 4:
+\lstinputlisting{TPvalues4.txt}
+And the F1 values are:
+\lstinputlisting{F1values.txt}
+
+The first model has the worst F1 value by far despite its quick convergence and lower cost function value than model 4, which has the second best F1 value (slightly lower than model 2, which has the best). The F1 values do not seem to show any correlation with the convergence or value of the cost function. 
+
+For the decision boundaries, I plotted the results of model 2 and we have that $theta_0 * x_0 + \theta_1 * x_1 + \theta_2 * x_2 + \theta_3 * x_3 = 0$ at the decision boundary, so per two features we have $x_i = -\theta_j/\theta_i * x_j$, see fig \ref{fig:fig6}. The two features that seem to have the most distinct boundary are the first two ($\kappa_{CO}$ and color/redness), which makes sense since the theta values for those two are an order of magnitude bigger than for the other two features.
+
+\begin{figure}[ht]
+     \begin{subfigure}{.49\textwidth}
+       \centering
+    \includegraphics[scale=0.5]{NUR4Q3decbound0.pdf}
+    \centering
+    \subcaption{decision boundary between rescaled $\kappa_{CO}$ and rescaled redness.}
+    \label{}
+    \end{subfigure}
+    \begin{subfigure}{.49\textwidth}
+       \centering
+    \includegraphics[scale=0.5]{NUR4Q3decbound1.pdf}
+    \centering
+    \subcaption{decision boundary between rescaled $\kappa_{CO}$ and rescaled extendedness.}
+    \label{}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{.49\textwidth}
+       \centering
+    \includegraphics[scale=0.5]{NUR4Q3decbound2.pdf}
+    \centering
+    \subcaption{decision boundary between rescaled $\kappa_{CO}$ and rescaled SFR.}
+    \label{}
+    \end{subfigure}
+     \begin{subfigure}{.49\textwidth}
+       \centering
+    \includegraphics[scale=0.5]{NUR4Q3decbound3.pdf}
+    \centering
+    \subcaption{decision boundary between rescaled redness and rescaled extendedness.}
+    \label{}
+    \end{subfigure}
+     \begin{subfigure}{.49\textwidth}
+       \centering
+    \includegraphics[scale=0.5]{NUR4Q3decbound4.pdf}
+    \centering
+    \subcaption{decision boundary between rescaled redness and rescaled SFR.}
+    \label{}
+    \end{subfigure}
+         \begin{subfigure}{.49\textwidth}
+       \centering
+    \includegraphics[scale=0.5]{NUR4Q3decbound5.pdf}
+    \centering
+    \subcaption{decision boundary between rescaled extendedness and rescaled SFR.}
+    \label{}
+    \end{subfigure}
+    \caption{Plot corresponding to 3c, showing the decision boundaries between features in the 2nd model.}
+    \label{fig:fig1}
+\end{figure}
+
