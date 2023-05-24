@@ -329,10 +329,10 @@ print("model 3", TP3, TN3, FP3, FN3)
 print("model 4", TP4, TN4, FP4, FN4)
 
 
-np.savetxt("TPvalues1.txt", np.transpose([TP, TN, FP, FN]))
-np.savetxt("TPvalues2.txt", np.transpose([TP2, TN2, FP2, FN2]))
-np.savetxt("TPvalues3.txt", np.transpose([TP3, TN3, FP3, FN3]))
-np.savetxt("TPvalues4.txt", np.transpose([TP4, TN4, FP4, FN4]))
+np.savetxt("TPvalues1.txt", np.transpose([TP, TN, FP, FN]), fmt='%i')
+np.savetxt("TPvalues2.txt", np.transpose([TP2, TN2, FP2, FN2]), fmt='%i')
+np.savetxt("TPvalues3.txt", np.transpose([TP3, TN3, FP3, FN3]), fmt='%i')
+np.savetxt("TPvalues4.txt", np.transpose([TP4, TN4, FP4, FN4]), fmt='%i')
 
 prec = TP / (TP + TN)
 recall = TP / (TP + FP)
