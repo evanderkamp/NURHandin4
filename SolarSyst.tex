@@ -1,3 +1,26 @@
 \section{Simulating the solar system}
 
-For this question I could copy my leapfrog code from the working class without changes and the Euler I could easily change 
+For this question I could copy my leapfrog code from the working class without changes and the Euler I could easily change it to fit the problem by looking at the leapfrog code. 
+Both the leapfrog algorithm and euler algorithm I made together with my sister Liz van der Kamp (s2135752) in the working class. 
+
+\subsection*{a}
+
+The code I wrote for this is:
+\lstinputlisting[lastline=60]{NUR_handin4Q1.py}
+
+First I got the positions and velocities as done in the example in the Handin description and I put them all in an array before converting the position values to AU like in the example. Then I plot the x-y and x-z positions at the "current" time (2021-12-07 10:00), see fig \ref{fig:fig1} and fig \ref{fig:fig2}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.9\linewidth]{NUR4Q1solsysxy.pdf}
+  \caption{Plot corresponding to exercise 1a, showing  the x and y positions of the solar system on 2021-12-07 10:00 in AU.}
+  \label{fig:fig1}
+\end{figure} 
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.9\linewidth]{NUR4Q1solsysxz.pdf}
+  \caption{Plot corresponding to exercise 1a, showing  the x and z positions of the solar system on 2021-12-07 10:00 in AU.}
+  \label{fig:fig2}
+\end{figure} 
