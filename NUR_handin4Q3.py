@@ -32,6 +32,8 @@ for i in range(4):
 
 np.savetxt("RescaleFeatures.txt", np.transpose([features[:,0], features[:,1], features[:,2], features[:,3]]))
 
+
+#b
 #getting the cost function J and gradient from the tutorial
 
 def J(h, y=classif):
@@ -214,6 +216,7 @@ plt.savefig("NUR4Q3costfunc1.pdf")
 plt.close()
 
 
+#c
 #now do for all features
 thetas2 = np.ones(features[0,:].size)
 
