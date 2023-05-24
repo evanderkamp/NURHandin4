@@ -14,7 +14,7 @@ python3 NUR_handin4Q3.py
 
 echo "Generating the pdf"
 
-pdflatex Handin3.tex
-bibtex Handin3.aux
-pdflatex Handin3.tex
-pdflatex Handin3.tex
+pdflatex Handin4.tex
+bibtex Handin4.aux
+pdflatex Handin4.tex
+pdflatex Handin4.tex
