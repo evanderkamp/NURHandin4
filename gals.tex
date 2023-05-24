@@ -51,7 +51,7 @@ The distributions of the rescaled features can be seen in \ref{fig:fig1}.
 \subsection*{b}
 
 The code I wrote for this is:
-\lstinputlisting[firsline=35, lastline=272]{NUR_handin4Q3.py}
+\lstinputlisting[firstline=35, lastline=272]{NUR_handin4Q3.py}
 
 I wrote a logistic regression code that uses a modified Quasi-Newton routine specialized for logistic regression to get the optimal theta which minimizes the cost function J. The logistic regression also keeps track of the theta at every step and calculates and returns the cost function at every step.
 
@@ -97,7 +97,7 @@ Model 2 and 3 converge to a negative value for the cost function and have a step
 \subsection*{c}
 
 The code I wrote for this is:
-\lstinputlisting[firsline=272]{NUR_handin4Q3.py}
+\lstinputlisting[firstline=272]{NUR_handin4Q3.py}
 
 I get the final classifications of the models by looking at the value of h, which is $1/(1+e^{-z})$ where z = the inproduct of the features and theta. 
 When the value of h is bigger than 1/2, the classification is 1 (spiral), and if the value is smaller than 1/2, the classification is 0 (elliptical). 
