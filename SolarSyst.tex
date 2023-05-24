@@ -8,13 +8,13 @@ Both the leapfrog algorithm and euler algorithm I made together with my sister L
 The code I wrote for this is:
 \lstinputlisting[lastline=60]{NUR_handin4Q1.py}
 
-First I got the positions and velocities as done in the example in the Handin description and I put them all in an array before converting the position values to AU like in the example. Then I plot the x-y and x-z positions at the "current" time (2021-12-07 10:00), see fig \ref{fig:fig1} and fig \ref{fig:fig2}.
+First I got the positions and velocities as done in the example in the Handin description and I put them all in an array before converting the position values to AU like in the example. Then I plot the x-y and x-z positions at the "current" time (2021-12-07 10:00), see fig \ref{fig:fig11} and fig \ref{fig:fig12}.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.9\linewidth]{NUR4Q1solsysxy.pdf}
   \caption{Plot corresponding to exercise 1a, showing the x and y positions of the solar system on 2021-12-07 10:00 in AU.}
-  \label{fig:fig1}
+  \label{fig:fig11}
 \end{figure} 
 
 
@@ -22,7 +22,7 @@ First I got the positions and velocities as done in the example in the Handin de
   \centering
   \includegraphics[width=0.9\linewidth]{NUR4Q1solsysxz.pdf}
   \caption{Plot corresponding to exercise 1a, showing the x and z positions of the solar system on 2021-12-07 10:00 in AU.}
-  \label{fig:fig2}
+  \label{fig:fig12}
 \end{figure} 
 
 
@@ -35,13 +35,13 @@ To get proper orbits when calculating the force between the sun and a planet, we
 We also have $dr/dt = v$ where $v$ is the speed of the planet. To then properly integrate the orbit the best choice is to use a leapfrog method because that conserves energy by combining a forward method (which adds energy) and a backward method (which removes energy). 
 It does so by first kicking the velocity of the planet half a step forward with a forward method and then calculating the following half steps using the previous half step. Then the positions get calcuted by using the previous position and the velocity from half a step forward (combining forward and backward).
 
-With the leapfrog method I integrated the orbits over a time of 200 years with a time step of half a day first by shifting all the positions so the sun is at the origin and then converting all of the units to SI units so the acceleration calculation goes right. When saving the integrated positions I convert back to units of AU and plot the x-y positions and t versus z, see fig \ref{fig:fig3} and fig \ref{fig:fig4}.
+With the leapfrog method I integrated the orbits over a time of 200 years with a time step of half a day first by shifting all the positions so the sun is at the origin and then converting all of the units to SI units so the acceleration calculation goes right. When saving the integrated positions I convert back to units of AU and plot the x-y positions and t versus z, see fig \ref{fig:fig13} and fig \ref{fig:fig14}.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.9\linewidth]{NUR4Q1solsysxyorbits.pdf}
   \caption{Plot corresponding to exercise 1b, showing the x and y positions of the solar system orbits integrated by the leapfrog algorithm in AU.}
-  \label{fig:fig3}
+  \label{fig:fig13}
 \end{figure} 
 
 
@@ -49,18 +49,18 @@ With the leapfrog method I integrated the orbits over a time of 200 years with a
   \centering
   \includegraphics[width=0.9\linewidth]{NUR4Q1solsystzorbits.pdf}
   \caption{Plot corresponding to exercise 1b, showing the x and z positions of the solar system orbits integrated by the leapfrog algorithm in AU.}
-  \label{fig:fig4}
+  \label{fig:fig14}
 \end{figure} 
 
 \subsection*{c}
 
-Doing the same as in b) but then with a forward Euler method gives a result of diverging orbits because forward methods add energy to the system, see fig \ref{fig:fig5}, fig \ref{fig:fig6} and \ref{fig:fig7}.
+Doing the same as in b) but then with a forward Euler method gives a result of diverging orbits because forward methods add energy to the system, see fig \ref{fig:fig15}, fig \ref{fig:fig16} and \ref{fig:fig17}.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.9\linewidth]{NUR4Q1solsysxyEuler.pdf}
   \caption{Plot corresponding to exercise 1c, showing the x and y positions of the solar system orbits integrated by the Euler algorithm in AU.}
-  \label{fig:fig5}
+  \label{fig:fig15}
 \end{figure} 
 
 
@@ -68,7 +68,7 @@ Doing the same as in b) but then with a forward Euler method gives a result of d
   \centering
   \includegraphics[width=0.9\linewidth]{NUR4Q1solsystzEuler.pdf}
   \caption{Plot corresponding to exercise 1c, showing the x and z positions of the solar system orbits integrated by the Euler algorithm in AU.}
-  \label{fig:fig6}
+  \label{fig:fig16}
 \end{figure} 
 
 
@@ -76,7 +76,7 @@ Doing the same as in b) but then with a forward Euler method gives a result of d
   \centering
   \includegraphics[width=0.9\linewidth]{NUR4Q1solsysorbitdiff.pdf}
   \caption{Plot corresponding to exercise 1c, showing a comparison of the x positions versus time of the solar system orbits integrated by the Euler algorithm and the leapfrog algorithm in AU.}
-  \label{fig:fig7}
+  \label{fig:fig17}
 \end{figure} 
 
 
