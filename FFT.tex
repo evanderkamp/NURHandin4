@@ -9,7 +9,7 @@ The code I wrote for this is:
 \lstinputlisting[lastline=82]{NUR_handin4Q2.py}
 
 The first part is copied from the example python script and then I calculated the mean density by taking $1024/16^3$ = the number of particles/volume of the grid. Then the density contrast $\delta$ is also calculated as is stated in the handin by taking the densities minus the mean density and dividing that by the mean density. 
-Plots of 2D slices of the grid at z = 4.5, 9.5, 11.5, and 14.5 showing $\delta$ are shown in \ref{fig:fig21}.
+Plots of 2D slices of the grid at z = 4.5, 9.5, 11.5, and 14.5 showing $\delta$ are shown in fig \ref{fig:fig21}.
 
 \begin{figure}[ht]
     \begin{subfigure}{.49\textwidth}
@@ -54,7 +54,7 @@ I wrote a recursive FFT which recursively calls on itself to split up the array 
 The inverse FFT does the same as the FFT except for that the term in the exponent is negative when calculating the FT and at the end I divide by N, the number of elements in the array. 
 To calculate the potential $\Phi$, I take the FFT of the density contrast $\delta$ and then divide by $k^2$, where k are the grid points (so 0.5, 1.5, 2.5, and so on). 
 Then to finally get $\Phi$, I take the IFFT of the FFT($\delta$)/$k^2$ = $\delta^{~}/k^2$ = $\Phi^{~}$. Then I convert that array from a complex array to a float array to be able to plot it.
-The plots with $\Phi$, the gravitational potential, at the same z slices as in a) can be seen in \ref{fig:fig22}, and the plots with the absolute value of the Fourier transformed potential, $\log_{10}(|\Phi^{~}|)$, at the same z slices as in a) can be seen in \ref{fig:fig23}.
+The plots with $\Phi$, the gravitational potential, at the same z slices as in a) can be seen in fig \ref{fig:fig22}, and the plots with the absolute value of the Fourier transformed potential, $\log_{10}(|\Phi^{~}|)$, at the same z slices as in a) can be seen in fig \ref{fig:fig23}.
 
 \begin{figure}[ht]
     \begin{subfigure}{.49\textwidth}
