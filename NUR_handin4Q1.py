@@ -46,7 +46,7 @@ plt.savefig("NUR4Q1solsysxy.pdf")
 plt.close()
 
 for k in range(len(solsyspos)):
-	posx = solsyspos[l].x.to_value(u.AU)
+	posx = solsyspos[k].x.to_value(u.AU)
 	posz = solsyspos[k].z.to_value(u.AU)
 	
 	plt.scatter(posx, posz, label=solsysname[k])
