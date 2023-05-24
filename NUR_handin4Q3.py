@@ -216,7 +216,6 @@ plt.savefig("NUR4Q3costfunc1.pdf")
 plt.close()
 
 
-#c
 #now do for all features
 thetas2 = np.ones(features[0,:].size)
 
