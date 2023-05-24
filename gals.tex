@@ -116,7 +116,7 @@ And the F1 values are:
 
 The first model has the worst F1 value by far despite its quick convergence and lower cost function value than model 4, which has the second best F1 value (slightly lower than model 2, which has the best). The F1 values do not seem to show any correlation with the convergence or value of the cost function. 
 
-For the decision boundaries, I plotted the results of model 2 and we have that $theta_0 * x_0 + \theta_1 * x_1 + \theta_2 * x_2 + \theta_3 * x_3 = 0$ at the decision boundary, so per two features we have $x_i = -\theta_j/\theta_i * x_j$, see fig \ref{fig:fig6}. The two features that seem to have the most distinct boundary are the first two ($\kappa_{CO}$ and color/redness), which makes sense since the theta values for those two are an order of magnitude bigger than for the other two features.
+For the decision boundaries, I plotted the results of model 2 and we have that $\theta_0 * x_0 + \theta_1 * x_1 + \theta_2 * x_2 + \theta_3 * x_3 = 0$ at the decision boundary, so per two features we have $x_i = -\theta_j/\theta_i * x_j$, see fig \ref{fig:fig6}. The two features that seem to have the most distinct boundary are the first two ($\kappa_{CO}$ and color/redness), which makes sense since the theta values for those two are an order of magnitude bigger than for the other two features.
 
 \begin{figure}[ht]
      \begin{subfigure}{.49\textwidth}
@@ -163,6 +163,6 @@ For the decision boundaries, I plotted the results of model 2 and we have that $
     \label{}
     \end{subfigure}
     \caption{Plot corresponding to 3c, showing the decision boundaries between features in the 2nd model.}
-    \label{fig:fig1}
+    \label{fig:fig6}
 \end{figure}
 
