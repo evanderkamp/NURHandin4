@@ -53,8 +53,8 @@ The code I wrote for this is:
 I wrote a recursive FFT which recursively calls on itself to split up the array in even and odd elements before calculating the FT of the elements.
 The inverse FFT does the same as the FFT except for that the term in the exponent is negative when calculating the FT and at the end I divide by N, the number of elements in the array. 
 To calculate the potential $\Phi$, I take the FFT of the density contrast $\delta$ and then divide by $k^2$, where k are the grid points (so 0.5, 1.5, 2.5, and so on). 
-Then to finally get $\Phi$, I take the IFFT of the FFT($\delta)/k^2$ = $\~\delta/k^2$ = $\~\Phi$. Then I convert that array from a complex array to a float array to be able to plot it.
-The plots with $\Phi$, the gravitational potential, at the same z slices as in a) can be seen in \ref{fig:fig2}, and the plots with the absolute value of the Fourier transformed potential, $\log_{10}(|\~\Phi|)$, at the same z slices as in a) can be seen in \ref{fig:fig3}.
+Then to finally get $\Phi$, I take the IFFT of the FFT($\delta$)/$k^2$ = $\delta^~/k^2$ = $\Phi^~$. Then I convert that array from a complex array to a float array to be able to plot it.
+The plots with $\Phi$, the gravitational potential, at the same z slices as in a) can be seen in \ref{fig:fig2}, and the plots with the absolute value of the Fourier transformed potential, $\log_{10}(|\Phi^~|)$, at the same z slices as in a) can be seen in \ref{fig:fig3}.
 
 \begin{figure}[ht]
     \begin{subfigure}{.49\textwidth}
@@ -120,6 +120,6 @@ The plots with $\Phi$, the gravitational potential, at the same z slices as in a
     \subcaption{z = 14.5 slice.}
     \label{}
     \end{subfigure}
-    \caption{2D slices of the 3D grid at different z slices. The color shows the log of the absolute value of the fourier transformed potential, $\log_{10}(|\~\Phi|)$.}
+    \caption{2D slices of the 3D grid at different z slices. The color shows the log of the absolute value of the fourier transformed potential, $\log_{10}(|\Phi^~|)$.}
     \label{fig:fig3}
 \end{figure}
