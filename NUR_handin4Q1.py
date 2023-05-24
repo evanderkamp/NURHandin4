@@ -205,7 +205,7 @@ figure = plt.figure(figsize=(15,10))
 for i in range(1,len(solsyspos)):
 	plt.plot(timerange/year, xposs[:,i-1]-xposE[:,i-1], label=solsysname[i])
 	
-plt.title("Solar System orbits from 2021-12-07 10:00 until 2221-12-07 10:00 comparison")
+plt.title("Solar System orbits from 2021-12-07 10:00 (t=0) until 2221-12-07 10:00 (t=200) comparison")
 plt.xlabel("t (yr)")
 plt.ylabel("x leapfrog - x Euler (AU)")
 plt.legend()
