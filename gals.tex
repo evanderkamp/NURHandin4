@@ -58,6 +58,8 @@ I wrote a logistic regression code that uses a modified Quasi-Newton routine spe
 For the two features of choice I chose the last two features, the extendedness and the SFR because I thought those two would be independent of each other (not correlated) so they would give more information about the classification than two correlated features like color (redness) and SFR. 
 My minimization routine took 20 steps to converge to a cost function value of about 10$^{-6}$ when taking the last two features, see fig \ref{fig:fig2}.
 
+NOTE: I tried implementing a constant into my features but it either broke my code or did not change anything, so I have left it out.
+
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.9\linewidth]{NUR4Q3costfunc1.pdf}
@@ -67,7 +69,8 @@ My minimization routine took 20 steps to converge to a cost function value of ab
 
 Next I try 3 more models, model 2 using all the features as input, model 3 using what I think are 'correlated' features (color and SFR), and model 4 using the two features I think are not correlated either, the first two features ($\kappa_{CO}$ and color/redness). 
 These all take the maximum amount of steps (100) to converge, though they do not change much after 20 or at most 50 steps. 
-Model 2 and 3 converge to a negative value for the cost function and have a step where the cost function value goes up instead of down, which might be because of a non-optimal step with the golden section search. Model 4 converges to a positive value around 10$^{-3}$ and does not have a jump, see \ref{fig:fig3}, \ref{fig:fig4}, and \ref{fig:fig5}.
+Model 2 and 3 converge to a negative value for the cost function and have a step where the cost function value goes up instead of down, which might be because of a non-optimal step with the golden section search (or maybe the same reason why the code did not like me adding a constant, but in the working class adding a bias did work). Model 4 converges to a positive value around 10$^{-3}$ and does not have a jump, see \ref{fig:fig3}, \ref{fig:fig4}, and \ref{fig:fig5}.
+
 
 
 \begin{figure}[h!]
